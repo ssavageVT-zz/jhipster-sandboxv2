@@ -1,0 +1,76 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPtoPeriodLabel">Create or edit a Pto Period</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.ptoPeriod.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.ptoPeriod.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_startDate">Start Date</label>
+                <div class="input-group">
+                    <input id="field_startDate" type="text" class="form-control" name="startDate" datetime-picker="{{dateformat}}" ng-model="vm.ptoPeriod.startDate" is-open="vm.datePickerOpenStatus.startDate"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('startDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_endDate">End Date</label>
+                <div class="input-group">
+                    <input id="field_endDate" type="text" class="form-control" name="endDate" datetime-picker="{{dateformat}}" ng-model="vm.ptoPeriod.endDate" is-open="vm.datePickerOpenStatus.endDate"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('endDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_hoursAllowed">Hours Allowed</label>
+            <input type="number" class="form-control" name="hoursAllowed" id="field_hoursAllowed"
+                    ng-model="vm.ptoPeriod.hoursAllowed"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_daysInPeriod">Days In Period</label>
+            <input type="number" class="form-control" name="daysInPeriod" id="field_daysInPeriod"
+                    ng-model="vm.ptoPeriod.daysInPeriod"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_hoursAccrued">Hours Accrued</label>
+            <input type="number" class="form-control" name="hoursAccrued" id="field_hoursAccrued"
+                    ng-model="vm.ptoPeriod.hoursAccrued"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_hoursRemaining">Hours Remaining</label>
+            <input type="number" class="form-control" name="hoursRemaining" id="field_hoursRemaining"
+                    ng-model="vm.ptoPeriod.hoursRemaining"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label for="field_employee">Employee</label>
+            <select class="form-control" id="field_employee" name="employee" ng-model="vm.ptoPeriod.employeeId" ng-options="employee.id as employee.id for employee in vm.employees"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,16 @@
+version: '2'
+services:
+    ptotracker-app:
+        image: ptotracker
+        external_links:
+            - ptotracker-mysql:mysql
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/ptotracker?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    ptotracker-mysql:
+        extends:
+            file: mysql.yml
+            service: ptotracker-mysql

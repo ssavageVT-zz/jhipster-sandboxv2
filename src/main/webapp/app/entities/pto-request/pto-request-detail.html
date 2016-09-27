@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span>Pto Request</span> {{vm.ptoRequest.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Request Date</span></dt>
+        <dd>
+            <span>{{vm.ptoRequest.requestDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Hours Requested</span></dt>
+        <dd>
+            <span>{{vm.ptoRequest.hoursRequested}}</span>
+        </dd>
+        <dt><span>Is Approved</span></dt>
+        <dd>
+            <span>{{vm.ptoRequest.isApproved}}</span>
+        </dd>
+        <dt><span>Approved By</span></dt>
+        <dd>
+            <span>{{vm.ptoRequest.approvedBy}}</span>
+        </dd>
+        <dt><span>Employee</span></dt>
+        <dd>
+            <a ui-sref="employee-detail({id:vm.ptoRequest.employeeId})">{{vm.ptoRequest.employeeId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="pto-request-detail.edit({id:vm.ptoRequest.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

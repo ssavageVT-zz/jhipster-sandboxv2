@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "employee",
+            "otherEntityName": "employee",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "requestDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "hoursRequested",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "isApproved",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "approvedBy",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160927173415",
+    "entityTableName": "pto_request",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "angularSuffix": "mySuffix"
+}

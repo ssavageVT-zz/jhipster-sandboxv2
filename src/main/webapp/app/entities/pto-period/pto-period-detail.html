@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span>Pto Period</span> {{vm.ptoPeriod.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Start Date</span></dt>
+        <dd>
+            <span>{{vm.ptoPeriod.startDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>End Date</span></dt>
+        <dd>
+            <span>{{vm.ptoPeriod.endDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Hours Allowed</span></dt>
+        <dd>
+            <span>{{vm.ptoPeriod.hoursAllowed}}</span>
+        </dd>
+        <dt><span>Days In Period</span></dt>
+        <dd>
+            <span>{{vm.ptoPeriod.daysInPeriod}}</span>
+        </dd>
+        <dt><span>Hours Accrued</span></dt>
+        <dd>
+            <span>{{vm.ptoPeriod.hoursAccrued}}</span>
+        </dd>
+        <dt><span>Hours Remaining</span></dt>
+        <dd>
+            <span>{{vm.ptoPeriod.hoursRemaining}}</span>
+        </dd>
+        <dt><span>Employee</span></dt>
+        <dd>
+            <a ui-sref="employee-detail({id:vm.ptoPeriod.employeeId})">{{vm.ptoPeriod.employeeId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="pto-period-detail.edit({id:vm.ptoPeriod.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

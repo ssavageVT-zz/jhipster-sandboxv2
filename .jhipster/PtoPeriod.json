@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "employee",
+            "otherEntityName": "employee",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "startDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "hoursAllowed",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "daysInPeriod",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "hoursAccrued",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "hoursRemaining",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20160927173414",
+    "entityTableName": "pto_period",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "angularSuffix": "mySuffix"
+}

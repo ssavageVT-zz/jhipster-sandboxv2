@@ -1,0 +1,70 @@
+<div>
+    <h2>Pto Periods</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="pto-period.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Pto Period
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Start Date</span></th>
+                    <th><span>End Date</span></th>
+                    <th><span>Hours Allowed</span></th>
+                    <th><span>Days In Period</span></th>
+                    <th><span>Hours Accrued</span></th>
+                    <th><span>Hours Remaining</span></th>
+                    <th><span>Employee</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ptoPeriod in vm.ptoPeriods track by ptoPeriod.id">
+                    <td><a ui-sref="pto-period-detail({id:ptoPeriod.id})">{{ptoPeriod.id}}</a></td>
+                    <td>{{ptoPeriod.startDate | date:'medium'}}</td>
+                    <td>{{ptoPeriod.endDate | date:'medium'}}</td>
+                    <td>{{ptoPeriod.hoursAllowed}}</td>
+                    <td>{{ptoPeriod.daysInPeriod}}</td>
+                    <td>{{ptoPeriod.hoursAccrued}}</td>
+                    <td>{{ptoPeriod.hoursRemaining}}</td>
+                    <td>
+                        <a ui-sref="employee-detail({id:ptoPeriod.employeeId})">{{ptoPeriod.employeeId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="pto-period-detail({id:ptoPeriod.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="pto-period.edit({id:ptoPeriod.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="pto-period.delete({id:ptoPeriod.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
